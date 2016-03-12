@@ -77,9 +77,6 @@ if (isset($accessToken)) {
 	mysql_query($query);
 	
 
-	// printing $profile array on the screen which holds the basic info about user
-	//print_r($profile);
-
 
   	// Now you can redirect to another page and use the access token from $_SESSION['facebook_access_token']
 } else {
@@ -100,7 +97,7 @@ if (isset($accessToken)) {
 		if(mysql_num_rows($result)>0){
         	while($row=mysql_fetch_row($result)){
 			echo "string";		
-			$sendNotif = $fb->post('/' . $row[0] . '/notifications', array('href' => '?true=43', 'template' => $title), '1526616007668429|KnpiggPDR2mGliZ_nZkMrr_FKew');
+			$sendNotif = $fb->post('/' . $row[0] . '/notifications', array('href' => '?true=43', 'template' => $title), accesstoken);
 		}
 	}
 	}
